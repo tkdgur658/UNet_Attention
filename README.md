@@ -1,6 +1,6 @@
 
-# Implementation of deep learning framework -- Attention UNet
-
+# Implementation of Attention UNet using PyTorch Deep Learning Framework
+ 
 The architecture was inspired by Attention-guided version of 2D UNet for automatic brain tumor segmentation. 
 
 ## Overview
