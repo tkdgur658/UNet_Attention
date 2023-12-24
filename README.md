@@ -8,25 +8,9 @@ This software is a PyTorch implementation of the proposed method. The original v
 ## Paper
 If you use this software for your research, please cite:
 
-<!-- BibTeX -->
-<button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#test2022paper" aria-expanded="false" aria-controls="test2022paper">
-  BibTeX
-</button>
-<div class="collapse" id="test2022paper">
-  <br>
-  <div class="card card-body">
-```{r, eval=FALSE}
-@misc{test2022paper,
-    title        = {
-        A test' paper
-    },
-    author       = {Test authora, Test authorb},
-    year         = 2022,
-    eprint       = {arXiv:test}
-}
+```python
+print('hello')
 ```
-  </div>
-</div>
 
 ## License
 This program is available for download for non-commercial use, licensed under the GNU General Public License. This allows its use for research purposes or other free software projects but does not allow its incorporation into any type of commercial software.
