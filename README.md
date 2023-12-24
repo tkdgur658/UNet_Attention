@@ -1,7 +1,7 @@
 
 # Implementation of deep learning framework -- Attention UNet
 
-The architecture was inspired by U-Net: Convolutional Networks for Biomedical Image Segmentation.
+The architecture was inspired by Attention-guided version of 2D UNet for automatic brain tumor segmentation.
 
 ## Overview
 This repository contains an unofficial implementation of Attention U-Net using PyTorch.<br/>
@@ -14,14 +14,13 @@ Please refer to the paper at the following page:
 If you use this software for your research, please cite:
 
 ```bibtex
-@article{park2023gstnet,
-  title={{GSTNet}: Flexible architecture under budget constraint for real-time human activity recognition},
-  author={Park, Jaegyun and Lim, Won-Seon and Kim, Dae-Won and Lee, Jaesung},
-  journal={Engineering Applications of Artificial Intelligence},
-  volume={124},
-  number={106543},
-  year={2023},
-  publisher={Elsevier}
+@inproceedings{noori2019attention,
+  title={Attention-guided version of 2D UNet for automatic brain tumor segmentation},
+  author={Noori, Mehrdad and Bahri, Ali and Mohammadi, Karim},
+  booktitle={2019 9th international conference on computer and knowledge engineering (ICCKE)},
+  pages={269--275},
+  year={2019},
+  organization={IEEE}
 }
 ```
 
@@ -32,4 +31,4 @@ This program is available for download for non-commercial use, licensed under th
 The repository contains the following files:
 
 - `model.py`: Python script file, containing the PyTorch implementation of the Attention UNet.
-- `README.md`: Markdown file explaining the project and providing instructions.
+- `README.md`: Markdown file explaining the model source code.
