@@ -8,7 +8,7 @@ This program (Attention UNet) is designed to perform the real-time sensor-based 
 This software is a PyTorch implementation of the proposed method. The original version of this program was written by Jaegyun Park.
 
 ## Model
-!["Attention UNet"]("Attention_UNet.png")
+![Local Image](Attention_UNet.png "Attention UNet")
 ## Paper
 If you use this software for your research, please cite:
 
