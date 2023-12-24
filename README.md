@@ -1,4 +1,4 @@
-![image](https://github.com/tkdgur658/UNet_Attention/assets/59380289/ee164fd3-67eb-494d-9233-8f81f513f837)"UNet_Attention" 
+
 # GTSNet: Flexible Architecture under Budget Constraint for Real-Time Human Activity Recognition from Wearable Sensor
 
 ## Abstract
@@ -19,6 +19,7 @@ If you use this software for your research, please cite:
   publisher={Elsevier}
 }
 '''
+
 
 ## License
 This program is available for download for non-commercial use, licensed under the GNU General Public License. This allows its use for research purposes or other free software projects but does not allow its incorporation into any type of commercial software.
