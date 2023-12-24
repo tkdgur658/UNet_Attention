@@ -6,7 +6,7 @@ The architecture was inspired by Attention-guided version of 2D UNet for automat
 ## Overview
 This repository contains an unofficial implementation of Attention U-Net using PyTorch.<br/>
 Please refer to the paper at the following page: 
-[Attention-Guided Version of 2D UNet for Automatic Brain Tumor Segmentation](https://ieeexplore.ieee.org/document/8964956?denie] "Visit")
+[Attention-Guided Version of 2D UNet for Automatic Brain Tumor Segmentation](https://ieeexplore.ieee.org/document/8964956?denie "Visit")
 
 ## Model
 ![Local Image](Attention_UNet.png "Attention UNet")
