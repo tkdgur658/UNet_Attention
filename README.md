@@ -1,4 +1,4 @@
-"UNet_Attention" 
+![image](https://github.com/tkdgur658/UNet_Attention/assets/59380289/ee164fd3-67eb-494d-9233-8f81f513f837)"UNet_Attention" 
 # GTSNet: Flexible Architecture under Budget Constraint for Real-Time Human Activity Recognition from Wearable Sensor
 
 ## Abstract
@@ -8,7 +8,7 @@ This software is a PyTorch implementation of the proposed method. The original v
 ## Paper
 If you use this software for your research, please cite:
 
- ```python
+```bibtex
 @article{park2023gtsnet,
 title={GTSNet: Flexible architecture under budget constraint for real-time human activity recognition from wearable sensor},
 author={Park, Jaegyun and Lim, Won-Seon and Kim, Tae-Hoon and Lee, Jaesun},
