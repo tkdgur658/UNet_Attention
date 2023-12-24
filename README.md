@@ -7,6 +7,7 @@ This software is a PyTorch implementation of the proposed method. The original v
 
 ## Paper
 If you use this software for your research, please cite:
+
 '''
 @article{park2023gtsnet,
 title={GTSNet: Flexible architecture under budget constraint for real-time human activity recognition from wearable sensor},
