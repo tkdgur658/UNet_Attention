@@ -18,6 +18,7 @@ If you use this software for your research, please cite:
   year={2023},
   publisher={Elsevier}
 }
+'''
 
 ## License
 This program is available for download for non-commercial use, licensed under the GNU General Public License. This allows its use for research purposes or other free software projects but does not allow its incorporation into any type of commercial software.
