@@ -4,8 +4,9 @@
 The architecture was inspired by U-Net: Convolutional Networks for Biomedical Image Segmentation.
 
 ## Overview
-This program (Attention UNet) is designed to perform the real-time sensor-based activity recognition. The GTSNet includes a Grouped Temporal Shift (GTS) module that allows the network architecture to be flexibly modified by predefining the theoretical computational cost.
-This software is a PyTorch implementation of the proposed method. The original version of this program was written by Jaegyun Park.
+This repository contains an unofficial implementation of Attention U-Net using PyTorch.<br/>
+Please refer to the paper at the following page: 
+[Attention-Guided Version of 2D UNet for Automatic Brain Tumor Segmentation](https://ieeexplore.ieee.org/document/8964956?denie] "Visit")
 
 ## Model
 ![Local Image](Attention_UNet.png "Attention UNet")
