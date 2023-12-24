@@ -17,8 +17,7 @@ If you use this software for your research, please cite:
   number={106543},
   year={2023},
   publisher={Elsevier}
-}
-'''
+}'''
 
 
 ## License
