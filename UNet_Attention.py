@@ -1,4 +1,4 @@
-#Noori, Mehrdad, Ali Bahri, and Karim Mohammadi. "Attention-guided version of 2D UNet for automatic brain tumor segmentation." 2019 9th International Conference on Computer and Knowledge Engineering (ICCKE). IEEE, 2019.
+# Noori, Mehrdad, Ali Bahri, and Karim Mohammadi. "Attention-guided version of 2D UNet for automatic brain tumor segmentation." 2019 9th international conference on computer and knowledge engineering (ICCKE). IEEE, 2019.
 from collections import OrderedDict
 import numpy as np
 import torch
@@ -7,39 +7,27 @@ from torch.autograd import Variable
 import torch.nn.functional as F
 
 class SEBlock(nn.Module):
-    def __init__(self, channels, reduction=8):
+    def __init__(self, channel, reduction=16):
         super(SEBlock, self).__init__()
-        shape = 0
-        
-        if channels == 512:
-            shape = 128
-        elif channels == 256:
-            shape = 256
-        elif channels == 128:
-            shape = 512
-        else:
-            assert shape == 0, "shape is 0"
-        self.gap = nn.AvgPool2d(shape, stride=1)
-        r = int(channels / reduction)
-        self.fc1 = nn.Linear(channels, r, bias=False)
-        self.relu = nn.ReLU(inplace=True)
-        self.fc2 = nn.Linear(r, channels, bias=False)
-        self.sigmoid = nn.Sigmoid()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.fc = nn.Sequential(
+            nn.Linear(channel, channel // reduction, bias=False),
+            nn.ReLU(inplace=True),
+            nn.Linear(channel // reduction, channel, bias=False),
+            nn.Sigmoid()
+        )
 
     def forward(self, x):
-        x = self.gap(x)
-        x = x.view(x.size(0), -1)
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.fc2(x)
-        x = self.sigmoid(x)
-        out = x.view(x.size(0), x.size(1), 1, 1)
-        return out
-
-
+        b, c, _, _ = x.size()
+        y = self.avg_pool(x).view(b, c)
+        y = self.fc(y).view(b, c, 1, 1)
+        return x * y.expand_as(x)
+    
+    
 class UNet_Attention(nn.Module):
-    def __init__(self, in_channels=1, out_channels=1, init_features=64, device = torch.device('cuda')):
+    def __init__(self, in_channels=1, out_channels=1, init_features=64, device = torch.device('cuda:0')):
         super(UNet_Attention, self).__init__()
+
         features = init_features
         self.device = device
         self.stem = nn.Conv2d(in_channels=in_channels,
@@ -85,9 +73,8 @@ class UNet_Attention(nn.Module):
         self.conv = nn.Conv2d(in_channels=features, out_channels=out_channels, kernel_size=1, padding=0)
 
     def forward(self, x):
-        if self.training== True : 
-            x = self.gaussian_noise(x)
-        
+        if self.training==True:
+            x += torch.normal(0, 0.01, x.shape).to(x.device)
         stem = self.stem(x)
         stem = F.pad(stem, (0, 1, 0, 1))
         enc1 = self.encoder1(stem)
@@ -142,11 +129,7 @@ class UNet_Attention(nn.Module):
 
         return self.conv(dec1)
 
-    def gaussian_noise(self, inputs, mean=0, stddev=0.01):
-        noise = torch.randn(inputs.shape)*stddev+mean
-        noise = noise.to(self.device)
-        out = torch.add(inputs, noise)        
-        return out
+
 
     @staticmethod
     def _block(in_channels, features, name):
@@ -180,7 +163,6 @@ class UNet_Attention(nn.Module):
                 ]
             )
         )
-# device = torch.device("cuda")
-# devices =  [0,1,2,3]
-# model = UNet_Attention(1,1, device=device)
-# model = torch.nn.DataParallel(model, device_ids = devices ).cuda()
+
+# import pytorch_model_summary
+# print(pytorch_model_summary.summary(UNet_Attention(1,2),torch.rand((1, 1, 512, 512))))
